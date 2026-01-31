@@ -60,6 +60,7 @@ export default function Dashboard() {
                             <FileText className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
+                            <div className="text-4xl font-bold text-gray-800">{stats.total_cases}</div>
                             <p className="text-xs text-muted-foreground mt-1">
                                 Registered in system
                             </p>

@@ -43,12 +43,12 @@ export function LoginForm({
           email
         })
         console.log("Register success:", response.data)
-        alert("Registration Successful! Please login.")
+        alert("Registered, you can login")
         setIsLogin(true)
       }
     } catch (err) {
       console.error("Auth error:", err)
-      setError(err.response?.data?.error || "An error occurred. Please try again.")
+      setError(err.response?.data?.error || "an error occurred. please try again.")
     } finally {
       setLoading(false)
     }
@@ -63,18 +63,18 @@ export function LoginForm({
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">{isLogin ? "Welcome back" : "Create an account"}</h1>
                 <p className="text-balance text-muted-foreground">
-                  {isLogin ? "Login to your Webteam account" : "Enter your details below"}
+                  {isLogin ? "Login to your Malkhan account" : "Enter your details below"}
                 </p>
               </div>
 
               {error && <div className="text-red-500 text-sm text-center">{error}</div>}
 
-              <div className="grid gap-2">
+              <div className="grid gap-2 ">
                 <Label htmlFor="username">Username</Label>
                 <Input
                   id="username"
                   type="text"
-                  placeholder="johndoe"
+                  placeholder=""
                   required
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -112,7 +112,7 @@ export function LoginForm({
                 />
               </div>
 
-              <Button type="submit" className="w-full" disabled={loading}>
+              <Button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-600 text-white" disabled={loading}>
                 {loading ? "Processing..." : (isLogin ? "Login" : "Sign Up")}
               </Button>
 
