@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CaseViewSet, PropertyViewSet, dashboard_stats
+from .views import CaseViewSet, PropertyViewSet, PropertyMovementViewSet, dashboard_stats
 
 router = DefaultRouter()
 router.register(r'cases', CaseViewSet)

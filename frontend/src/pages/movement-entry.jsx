@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -143,6 +144,7 @@ export default function MovementEntryPage() {
                     </Card>
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }

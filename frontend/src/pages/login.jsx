@@ -1,5 +1,6 @@
 import { LoginForm } from "@/components/login-form"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 // LoginPage component handles the layout and rendering of the login screen.
 // It centers the LoginForm on the screen with a muted background.
 export default function LoginPage() {
@@ -11,6 +12,7 @@ export default function LoginPage() {
                     <LoginForm />
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

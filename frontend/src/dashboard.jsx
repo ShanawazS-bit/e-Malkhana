@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Archive, Clock, FileText } from 'lucide-react'
 
@@ -36,7 +37,7 @@ export default function Dashboard() {
         <div className="min-h-screen bg-gray-50 font-sans">
             <Header />
 
-            <main className="container mx-auto p-8">
+            <main className="w-full px-6 py-8">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-bold text-gray-800 border-l-4 border-yellow-500 pl-4">
                         Dashboard Overview
@@ -149,6 +150,7 @@ export default function Dashboard() {
                 </Card>
 
             </main>
+            <Footer />
         </div>
     )
 }

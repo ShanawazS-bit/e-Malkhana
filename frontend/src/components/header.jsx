@@ -1,16 +1,32 @@
 import { Link } from 'react-router-dom'
+import { AccessibilityTools } from './accessibility-tools'
+import { Button } from '@/components/ui/button'
 
 export function Header() {
   return (
     <header className="w-full bg-white border-b-4 border-yellow-500 shadow-sm">
       {/* Top thin bar */}
-      <div className="bg-gray-100 text-xs py-1 px-4 flex justify-between text-gray-600">
-        <span>Government of India</span>
-        <span>Ministry of Law and Justice</span>
+      <div className="bg-gray-100 text-xs py-1 px-4 flex justify-between items-center text-gray-600">
+        <div className="flex gap-4">
+          <span>Government of India</span>
+          <span>Ministry of Law and Justice</span>
+        </div>
+
+        {/* Accessibility & Language */}
+        <div className="flex items-center gap-2">
+
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:bg-white focus:p-2 focus:top-0 focus:left-0 z-50">Skip to Main Content</a>
+
+          <div className="flex bg-white rounded border border-gray-200">
+            <Button variant="ghost" className="h-6 px-2 text-xs font-bold border-r rounded-none hover:bg-gray-100">English</Button>
+            <Button variant="ghost" className="h-6 px-2 text-xs hover:bg-gray-100">Hindi</Button>
+          </div>
+
+          <AccessibilityTools />
+        </div>
       </div>
 
-      {/* Main Header Area */}
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="w-full px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center w-16 h-16">
             <img src="/image.png" alt="Emblem" className="h-full w-full object-contain" />
@@ -32,13 +48,13 @@ export function Header() {
         {/* Right Side - Emblems & Navigation */}
         <div className="flex items-center gap-6">
           {/*G20*/}
-          <div className="h-12">
+          <div className="h-12 hidden md:block">
             <img src="/image copy.png" alt="G20" className="h-full object-contain" />
           </div>
 
           <div className="h-8 w-px bg-gray-300 mx-2 hidden md:block"></div>
 
-          <div className="flex items-center gap-4">
+          <nav className="flex items-center gap-4 flex-wrap justify-center">
             <Link to="/" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
               Home
             </Link>
@@ -54,8 +70,7 @@ export function Header() {
             <Link to="/manage-entries" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
               Manage Entries
             </Link>
-
-          </div>
+          </nav>
         </div>
       </div>
     </header>

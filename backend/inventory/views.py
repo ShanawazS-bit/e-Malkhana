@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Case, Property, PropertyMovement
@@ -7,6 +7,8 @@ from .serializers import CaseSerializer, PropertySerializer, PropertyMovementSer
 class CaseViewSet(viewsets.ModelViewSet):
     queryset = Case.objects.all().order_by('-created_at')
     serializer_class = CaseSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['crime_number', 'police_station', 'investigating_officer_name']
 
 class PropertyViewSet(viewsets.ModelViewSet):
     queryset = Property.objects.all()
