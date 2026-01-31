@@ -1,0 +1,13 @@
+# Ignore Backend and Root Scripts
+backend/
+api/
+venv/
+*.py
+db.sqlite3
+.DS_Store
+
+# Ignore Frontend specific clutter
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.DS_Store
