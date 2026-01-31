@@ -1,14 +1,11 @@
 # E-Malkhana Management System
 
-![Dashboard](https://raw.githubusercontent.com/ShanawazS-bit/E-Malkhana-System/main/frontend/public/dashboard-preview.png)
-*(Note: Replace with actual screenshot URL after hosting)*
 
-## 🏛️ Project Overview
+##  Project Overview
 The **E-Malkhana Management System** is a digital solution designed for the **Department of Justice** to streamline the management of seized properties (Malkhana). It replaces traditional manual registers with a secure, efficient, and transparent digital "Chain of Custody" log.
 
 Built with an official "Government of India" theme, the system ensures accountability, ease of tracking, and real-time status updates for case properties.
 
-## 🚀 Key Features
 
 *   **Dashboards**: Real-time visualization of Total, Pending, and Disposed cases.
 *   **Chain of Custody**: Complete history tracking of property movement (Storage ↔ Court ↔ FSL) with "From/To", purpose, and timestamps.
@@ -19,11 +16,11 @@ Built with an official "Government of India" theme, the system ensures accountab
 ## 🛠️ Technology Stack
 
 | Component | Technology | Description |
-| :--- | :--- | :--- |
+
 | **Frontend** | React 19 (Vite) | Fast, responsive UI with Tailwind CSS & Shadcn/UI |
-| **Backend** | Django REST Framework | Robust API handling, ORM, and business logic |
+| **Backend** | Django REST Framework | Robust API handling, ORM
 | **Database** | MySQL | Relational data storage for cases and property logs |
-| **Styling** | Tailwind CSS | Utility-first styling with custom government theme |
+
 
 ## ⚙️ Installation & Setup
 
@@ -79,12 +76,5 @@ Visit `http://localhost:5173` to view the application.
 | :---: | :---: |
 | ![Case Entry](frontend/public/case_entry.png) | ![Movement](frontend/public/property_movement.png) |
 
-## 🤝 Contribution
-1.  Fork the repository.
-2.  Create a feature branch (`git checkout -b feature/AmazingFeature`).
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4.  Push to the branch (`git push origin feature/AmazingFeature`).
-5.  Open a Pull Request.
 
-## 📜 License
-Attribute to **Shanawaz Sharif**.
+

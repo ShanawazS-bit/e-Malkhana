@@ -40,6 +40,7 @@ function Home() {
 }
 
 import MovementEntryPage from '@/pages/movement-entry'
+import ManageEntriesPage from '@/pages/manage-entries'
 
 
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/case-entry" element={<CaseEntryPage />} />
         <Route path="/movement-entry" element={<MovementEntryPage />} />
+        <Route path="/manage-entries" element={<ManageEntriesPage />} />
       </Routes>
     </Router>
   )

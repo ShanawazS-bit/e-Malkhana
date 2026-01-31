@@ -51,6 +51,9 @@ export function Header() {
             <Link to="/movement-entry" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
               Movement Entry
             </Link>
+            <Link to="/manage-entries" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
+              Manage Entries
+            </Link>
 
           </div>
         </div>
