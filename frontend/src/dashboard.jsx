@@ -10,18 +10,17 @@ export default function Dashboard() {
         pending_cases: 0,
         disposed_cases: 0
     })
-    const [loading, setLoading] = useState(true)
 
     const [recentProperties, setRecentProperties] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Fetch Stats
+
+                //fetching
                 const statsRes = await axios.get('http://127.0.0.1:8000/api/inventory/dashboard-stats/')
                 setStats(statsRes.data)
 
-                // Fetch Recent Properties
                 const propsRes = await axios.get('http://127.0.0.1:8000/api/inventory/properties/')
                 setRecentProperties(propsRes.data)
             } catch (error) {
@@ -44,17 +43,15 @@ export default function Dashboard() {
                         Dashboard Overview
                     </h2>
                     <div className="flex items-center gap-4">
-                        <span className="text-sm text-gray-500">Last updated: Just now</span>
+                        <span className="text-sm text-gray-500"></span>
                         <a href="/case-entry" className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md font-medium text-sm">
                             + New Case
                         </a>
                     </div>
                 </div>
 
-                {/* Metrics Grid */}
                 <div className="grid gap-6 md:grid-cols-3 mb-10">
 
-                    {/* Total Cases Card */}
                     <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-yellow-500">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium text-gray-600 uppercase tracking-wider">
@@ -63,39 +60,36 @@ export default function Dashboard() {
                             <FileText className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
-                            <div className="text-4xl font-bold text-gray-800">{loading ? "..." : stats.total_cases}</div>
                             <p className="text-xs text-muted-foreground mt-1">
                                 Registered in system
                             </p>
                         </CardContent>
                     </Card>
 
-                    {/* Disposed Cases Card */}
-                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-green-500">
+                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-yellow-500">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium text-gray-600 uppercase tracking-wider">
                                 Disposed Cases
                             </CardTitle>
-                            <Archive className="h-4 w-4 text-green-500" />
+                            <Archive className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
-                            <div className="text-4xl font-bold text-gray-800">{loading ? "..." : stats.disposed_cases}</div>
+                            <div className="text-4xl font-bold text-gray-800">{stats.disposed_cases}</div>
                             <p className="text-xs text-muted-foreground mt-1">
                                 Property disposal completed
                             </p>
                         </CardContent>
                     </Card>
 
-                    {/* Pending Cases Card */}
-                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-red-500">
+                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-yellow-500">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium text-gray-600 uppercase tracking-wider">
                                 Pending Cases
                             </CardTitle>
-                            <Clock className="h-4 w-4 text-red-500" />
+                            <Clock className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
-                            <div className="text-4xl font-bold text-gray-800">{loading ? "..." : stats.pending_cases}</div>
+                            <div className="text-4xl font-bold text-gray-800">{stats.pending_cases}</div>
                             <p className="text-xs text-muted-foreground mt-1">
                                 Action required
                             </p>
@@ -103,7 +97,7 @@ export default function Dashboard() {
                     </Card>
                 </div>
 
-                {/* Recent Properties Table */}
+
                 <Card className="bg-white border border-gray-200 shadow-sm">
                     <CardHeader className="border-b bg-gray-50/50">
                         <CardTitle className="text-lg font-bold text-gray-800">Recent Seized Properties</CardTitle>
@@ -132,13 +126,13 @@ export default function Dashboard() {
                                             <tr key={prop.id} className="bg-white border-b hover:bg-gray-50">
                                                 <td className="px-6 py-4 font-medium text-gray-900">#{prop.id}</td>
                                                 <td className="px-6 py-4">{prop.category}</td>
-                                                <td className="px-6 py-4 truncate max-w-[200px]">{prop.description}</td>
+                                                <td className="px-6 py-4 ">{prop.description}</td>
                                                 <td className="px-6 py-4">{prop.location}</td>
                                                 <td className="px-6 py-4">
                                                     {prop.qr_code ? (
                                                         <img
                                                             src={prop.qr_code}
-                                                            alt="QR Code"
+                                                            alt="qr code"
                                                             className="h-16 w-16 object-contain border p-1 rounded bg-white"
                                                         />
                                                     ) : (
