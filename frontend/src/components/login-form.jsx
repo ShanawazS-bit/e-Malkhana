@@ -7,6 +7,7 @@ import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import loginImage from "@/assets/image.png"
+import heart from "@/assets/heart.png"
 
 export function LoginForm({
   className,
@@ -138,8 +139,10 @@ export function LoginForm({
       </Card>
       <div
         className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        made with
+        <img src={heart} alt="heart" style={{ width: "16px", height: "16px", verticalAlign: "middle", display: "inline-block", margin: "0 4px" }} />
+        by
+        <a href="https://github.com/ShanawazS-bit/" target="_blank" rel="noopener noreferrer"> Shanawaz Sharif</a>{" "}
       </div>
     </div>
   );
