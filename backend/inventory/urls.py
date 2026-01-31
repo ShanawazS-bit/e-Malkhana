@@ -5,6 +5,7 @@ from .views import CaseViewSet, PropertyViewSet, dashboard_stats
 router = DefaultRouter()
 router.register(r'cases', CaseViewSet)
 router.register(r'properties', PropertyViewSet)
+router.register(r'movements', PropertyMovementViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
