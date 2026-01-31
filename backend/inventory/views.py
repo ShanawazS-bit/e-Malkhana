@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Case, Property
-from .serializers import CaseSerializer, PropertySerializer
+from .models import Case, Property, PropertyMovement
+from .serializers import CaseSerializer, PropertySerializer, PropertyMovementSerializer
 
 class CaseViewSet(viewsets.ModelViewSet):
     queryset = Case.objects.all().order_by('-created_at')
@@ -11,6 +11,17 @@ class CaseViewSet(viewsets.ModelViewSet):
 class PropertyViewSet(viewsets.ModelViewSet):
     queryset = Property.objects.all()
     serializer_class = PropertySerializer
+
+class PropertyMovementViewSet(viewsets.ModelViewSet):
+    queryset = PropertyMovement.objects.all().order_by('-movement_date')
+    serializer_class = PropertyMovementSerializer
+
+    def perform_create(self, serializer):
+        movement = serializer.save()
+
+        property_instance = movement.property
+        property_instance.location = movement.to_location
+        property_instance.save()
 
 @api_view(['GET'])
 def dashboard_stats(request):

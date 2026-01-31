@@ -1,12 +1,16 @@
 from rest_framework import serializers
-from .models import Case, Property
-
+from .models import Case, Property, PropertyMovement
 
 class PropertySerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
         fields = '__all__'
-        read_only_fields = ['qr_code'] # QR code is generated automatically so read only
+        read_only_fields = ['qr_code']
+
+class PropertyMovementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PropertyMovement
+        fields = '__all__'
 
 class CaseSerializer(serializers.ModelSerializer):
     properties = PropertySerializer(many=True, read_only=True)
