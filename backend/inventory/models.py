@@ -43,13 +43,10 @@ class Property(models.Model):
     qr_code = models.ImageField(upload_to='qr_codes/', blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        # 1. Save first to get the ID
         if not self.id:
             super().save(*args, **kwargs)
-
-        # 2. Generate QR Code if missing
+            
         if not self.qr_code:
-            # Barebones content: Just the URL or ID
             qr_content = f"PROPERTY-ID:{self.id}"
             
             qr = qrcode.make(qr_content)
@@ -61,3 +58,14 @@ class Property(models.Model):
 
     def __str__(self):
         return f"{self.category} - {self.quantity_units}"
+
+class PropertyMovement(models.Model):
+    property = models.ForeignKey(Property, related_name='movements', on_delete=models.CASCADE)
+    from_location = models.CharField(max_length=255)
+    to_location = models.CharField(max_length=255)
+    purpose = models.CharField(max_length=255) 
+    remarks = models.TextField(blank=True, null=True)
+    movement_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.property} moved to {self.to_location} on {self.movement_date}"

@@ -12,31 +12,32 @@ export function Header() {
       {/* Main Header Area */}
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          {/* Logo Area - Left Emblem */}
           <div className="flex items-center justify-center w-16 h-16">
             <img src="/image.png" alt="Emblem" className="h-full w-full object-contain" />
           </div>
 
           <div className="flex flex-col">
-            <h1 className="text-1xl font-bold text-gray-800 uppercase">
-              Department of Justice
-            </h1>
-            <h2 className="text-sm font-semibold text-yellow-600 uppercase tracking-wider">
+
+            <h1 className="text-md font-semibold text-yellow-600 uppercase tracking-wider">
               E-Malkhana Management System
-            </h2>
+            </h1>
+
+            <h4 className="text-xs font-semibold text-black uppercase tracking-wider">
+              Department of Justice
+            </h4>
+
           </div>
         </div>
 
         {/* Right Side - Emblems & Navigation */}
         <div className="flex items-center gap-6">
-          {/* Right Emblem (G20/Azadi) */}
+          {/*G20*/}
           <div className="h-12">
             <img src="/image copy.png" alt="G20" className="h-full object-contain" />
           </div>
 
           <div className="h-8 w-px bg-gray-300 mx-2 hidden md:block"></div>
 
-          {/* Navigation Links */}
           <div className="flex items-center gap-4">
             <Link to="/" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
               Home
@@ -44,6 +45,13 @@ export function Header() {
             <Link to="/dashboard" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
               Dashboard
             </Link>
+            <Link to="/case-entry" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
+              Add Case
+            </Link>
+            <Link to="/movement-entry" className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">
+              Movement Entry
+            </Link>
+
           </div>
         </div>
       </div>

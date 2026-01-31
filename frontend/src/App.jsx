@@ -6,15 +6,11 @@ import axios from 'axios'
 import LoginPage from '@/pages/login'
 import './App.css'
 
-// Home component displays the backend status.
-// It serves as the landing page for authenticated or public users (for now public).
 function Home() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
 
-  // Effect to fetch initial data from backend on component mount
   useEffect(() => {
-    // Making a get request to the Django "Hello World" API
     axios.get('http://127.0.0.1:8000/api/hello/')
       .then(response => {
         setMessage(response.data.message)
@@ -43,17 +39,19 @@ function Home() {
   )
 }
 
-// App component sets up the routing for the application.
+import MovementEntryPage from '@/pages/movement-entry'
+
+
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/login" element={<LoginPage />} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/case-entry" element={<CaseEntryPage />} />
-
+        <Route path="/movement-entry" element={<MovementEntryPage />} />
       </Routes>
     </Router>
   )

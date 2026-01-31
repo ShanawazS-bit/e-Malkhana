@@ -17,7 +17,6 @@ export default function Dashboard() {
         const fetchData = async () => {
             try {
 
-                //fetching
                 const statsRes = await axios.get('http://127.0.0.1:8000/api/inventory/dashboard-stats/')
                 setStats(statsRes.data)
 
@@ -44,6 +43,9 @@ export default function Dashboard() {
                     </h2>
                     <div className="flex items-center gap-4">
                         <span className="text-sm text-gray-500"></span>
+                        <a href="/movement-entry" className="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-md font-medium text-sm">
+                            Movement Log
+                        </a>
                         <a href="/case-entry" className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md font-medium text-sm">
                             + New Case
                         </a>
@@ -52,12 +54,11 @@ export default function Dashboard() {
 
                 <div className="grid gap-6 md:grid-cols-3 mb-10">
 
-                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-yellow-500">
+                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium text-gray-600 uppercase tracking-wider">
                                 Total Cases
                             </CardTitle>
-                            <FileText className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
                             <div className="text-4xl font-bold text-gray-800">{stats.total_cases}</div>
@@ -67,12 +68,11 @@ export default function Dashboard() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-yellow-500">
+                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium text-gray-600 uppercase tracking-wider">
                                 Disposed Cases
                             </CardTitle>
-                            <Archive className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
                             <div className="text-4xl font-bold text-gray-800">{stats.disposed_cases}</div>
@@ -82,12 +82,11 @@ export default function Dashboard() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-yellow-500">
+                    <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium text-gray-600 uppercase tracking-wider">
                                 Pending Cases
                             </CardTitle>
-                            <Clock className="h-4 w-4 text-yellow-500" />
                         </CardHeader>
                         <CardContent>
                             <div className="text-4xl font-bold text-gray-800">{stats.pending_cases}</div>
