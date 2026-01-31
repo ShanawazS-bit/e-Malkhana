@@ -69,9 +69,15 @@ Visit `http://localhost:5173` to view the application.
 
 ## 📸 Screenshots
 
+### 1. Dashboard & Login
 | Login Page | Dashboard |
 | :---: | :---: |
-| ![Login](frontend/public/login-preview.png) | ![Dashboard](frontend/public/dashboard-preview.png) |
+| ![Login](frontend/public/login_page.png) | ![Dashboard](frontend/public/dashboard_view.png) |
+
+### 2. Case Management
+| Case Entry | Property Movement (Chain of Custody) |
+| :---: | :---: |
+| ![Case Entry](frontend/public/case_entry.png) | ![Movement](frontend/public/property_movement.png) |
 
 ## 🤝 Contribution
 1.  Fork the repository.
