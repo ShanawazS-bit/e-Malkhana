@@ -72,9 +72,12 @@ Visit `http://localhost:5173` to view the application.
 | ![Login](frontend/public/login_page.png) | ![Dashboard](frontend/public/dashboard_view.png) |
 
 ### 2. Case Management
-| Case Entry | Property Movement (Chain of Custody) |
-| :---: | :---: |
-| ![Case Entry](frontend/public/case_entry.png) | ![Movement](frontend/public/property_movement.png) |
+| Case Entry | Property Movement (Chain of Custody)
+[Case Entry](frontend/public/case_entry.png) [Movement](frontend/public/property_movement.png)
+[managing enteries](frontend/public/manage_entry.png)
+
+[property movement](frontend/public/property_movement.png)
+
 
 
 
